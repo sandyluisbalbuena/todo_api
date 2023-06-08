@@ -1,0 +1,4 @@
+.tableBody{
+	height: 10px !important;
+	overflow: auto !important;
+}
