@@ -4,7 +4,10 @@ import React, { useEffect, useState } from 'react'
 const GetAllTodos = () => {
 
   const [todos , setQuote] = useState([]);
-  $('[data-mdb-toggle="tooltip"]').tooltip();
+
+  $(function () {
+    $('[data-mdb-toggle="tooltip"]').tooltip();
+  });
 
 
 	useEffect(()=> {
