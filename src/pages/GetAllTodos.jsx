@@ -236,7 +236,7 @@ const GetAllTodos = () => {
 				console.log(response.data)
 
         Swal.fire({
-          title: 'Random',
+          title: 'One Record',
           text: response.data.todo
         });
 
