@@ -53,12 +53,8 @@ const GetAllTodos = () => {
       console.log(error);
     })
     .then(()=>{
-      // $(document).ready(function() {
-        $('[data-mdb-toggle="tooltip"]').tooltip();
-      // }); 
+      $('[data-mdb-toggle="tooltip"]').tooltip();
     })
-    ;
-
 	}
 
   function deleteTodo(id) {
@@ -78,6 +74,9 @@ const GetAllTodos = () => {
 		.catch((error)=>{
 			console.log(error);
 		})
+    .then(()=>{
+      $('[data-mdb-toggle="tooltip"]').tooltip();
+    })
   }
 
   function updateTodo(id) {
@@ -124,7 +123,10 @@ const GetAllTodos = () => {
               text: `Failed to add to-do item: ${error.message}`,
               icon: 'error'
             });
-          });
+          })
+          .then(()=>{
+            $('[data-mdb-toggle="tooltip"]').tooltip();
+          })
       },
       allowOutsideClick: () => !Swal.isLoading()
     });
@@ -191,7 +193,10 @@ const GetAllTodos = () => {
               text: `Failed to add to-do item: ${error.message}`,
               icon: 'error'
             });
-          });
+          })
+          .then(()=>{
+            $('[data-mdb-toggle="tooltip"]').tooltip();
+          })
       },
       allowOutsideClick: () => !Swal.isLoading()
     });
@@ -222,6 +227,9 @@ const GetAllTodos = () => {
 		.catch((error)=>{
 			console.log(error);
 		})
+    .then(()=>{
+      $('[data-mdb-toggle="tooltip"]').tooltip();
+    })
   }
 
   function getOne(id){
@@ -279,7 +287,10 @@ const GetAllTodos = () => {
     })
     .catch(error => {
       console.log(error);
-    });
+    })
+    .then(()=>{
+      $('[data-mdb-toggle="tooltip"]').tooltip();
+    })
   }
 
   return (
