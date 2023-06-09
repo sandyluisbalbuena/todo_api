@@ -8,12 +8,14 @@ const GetAllTodos = () => {
 
 	useEffect(()=> {
 		fetch();
+
+    
 	}, [])
 
   function fetch(limit , skip){
 
     if(limit == undefined || limit == ''){
-      limit = 10;
+      limit = 5;
     }
 
     if(skip == undefined || skip == ''){
@@ -49,7 +51,13 @@ const GetAllTodos = () => {
     })
     .catch(error => {
       console.log(error);
-    });
+    })
+    .then(()=>{
+      // $(document).ready(function() {
+        $('[data-mdb-toggle="tooltip"]').tooltip();
+      // }); 
+    })
+    ;
 
 	}
 
@@ -310,7 +318,7 @@ const GetAllTodos = () => {
                 <td>{t.completed.toString()}</td>
                 <td>{t.userId}</td>
                 <td>{t.firstname+'  '+t.maidenname+'  '+t.lastname}</td>
-                {(t.userId != 88)?(<td><button className='btn btn-danger btn-sm mx-1' onClick={()=>deleteTodo(t.id)} style={{width:"20%"}}><i className="fas fa-trash"></i></button><button style={{width:"20%"}} className='btn btn-success btn-sm mx-1' onClick={()=>updateTodo(t.id)}><i className="fas fa-edit"></i></button><button style={{width:"20%"}} className='btn btn-primary btn-sm mx-1' onClick={()=>getOne(t.id)}><i className="fas fa-eye"></i></button></td>):(<td><button className='btn btn-danger btn-sm mx-1' onClick={()=>newlyaddedrecord()} style={{width:"20%"}}><i className="fas fa-trash"></i></button><button style={{width:"20%"}} className='btn btn-success btn-sm mx-1' onClick={()=>newlyaddedrecord()}><i className="fas fa-edit"></i></button><button style={{width:"20%"}} className='btn btn-primary btn-sm mx-1' onClick={()=>newlyaddedrecord()}><i className="fas fa-eye"></i></button></td>)}
+                {(t.userId != 88)?(<td><button  data-mdb-toggle="tooltip" data-mdb-placement="top" title="Delete" className='btn btn-danger btn-sm mx-1' onClick={()=>deleteTodo(t.id)} style={{width:"20%"}}><i className="fas fa-trash"></i></button><button  data-mdb-toggle="tooltip" data-mdb-placement="top" title="Edit" style={{width:"20%"}} className='btn btn-success btn-sm mx-1' onClick={()=>updateTodo(t.id)}><i className="fas fa-edit"></i></button><button  data-mdb-toggle="tooltip" data-mdb-placement="top" title="View" style={{width:"20%"}} className='btn btn-primary btn-sm mx-1' onClick={()=>getOne(t.id)}><i className="fas fa-eye"></i></button></td>):(<td><button className='btn btn-danger btn-sm mx-1' onClick={()=>newlyaddedrecord()} style={{width:"20%"}}><i className="fas fa-trash"></i></button><button style={{width:"20%"}} className='btn btn-success btn-sm mx-1' onClick={()=>newlyaddedrecord()}><i className="fas fa-edit"></i></button><button style={{width:"20%"}} className='btn btn-primary btn-sm mx-1' onClick={()=>newlyaddedrecord()}><i className="fas fa-eye"></i></button></td>)}
               </tr>)
             ))
           }
