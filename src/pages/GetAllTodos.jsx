@@ -4,12 +4,11 @@ import React, { useEffect, useState } from 'react'
 const GetAllTodos = () => {
 
   const [todos , setQuote] = useState([]);
+  $('[data-mdb-toggle="tooltip"]').tooltip();
 
 
 	useEffect(()=> {
 		fetch();
-
-    
 	}, [])
 
   function fetch(limit , skip){
@@ -22,8 +21,6 @@ const GetAllTodos = () => {
       skip = 0;
     }
 
-    let collection;
-    let newcollection;
 
 		axios.get(`https://dummyjson.com/todos?limit=${limit}&skip=${skip}`)
     .then(response => {
